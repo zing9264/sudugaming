@@ -28,14 +28,16 @@
 
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="./labelpool.json"></script>
-    <script src="./app.js"></script>
-    <script src="./script.js" defer></script>
-  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({selector:'textarea'});</script>
+
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
 
     <style>
-        .tox-notification--warning {display:none!important;}
-        
+        .tox-notification--warning {
+            display: none !important;
+        }
+
         .labelpool {
             margin: 0.15rem;
         }
@@ -83,31 +85,83 @@
     </nav>
 
     <div class="classify container shadow-lg p-3 mb-5 ">
-
-            <div class="jumbotron">
-                <label for="title">標題</label>
-
-                <input id="title" class="form-control display-4" type="text" placeholder="">
-
-                <label for="content-1">內文</label>
-                    <form method="post">
-                  <textarea id="content-1" >Hello, World!</textarea>
-                </form>
-  
-            </div>
+        <div class="jumbotron">
+            <label for="title">標題</label>
+            <input id="title" class="form-control display-4" type="text" placeholder="">
+            <label for="content-1">內文</label>
+            <form method="post">
+                <textarea id="content-1">Hello, World!</textarea>
+            </form>
+        </div>
     </div>
 
+
+    <div class="classify container shadow-lg p-3 mb-5 ">
+        <div class="jumbotron">
+            <label for="content-2">文字段落</label>
+            <form method="post">
+                <textarea id="content-2">Hello, World!</textarea>
+            </form>
+        </div>
+        <div class="d-flex flex-row-reverse ">
+            <button class=" btn btn-outline-danger btn-lg" type="button">刪除段落</button>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+            function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+            $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+        }
+
+        $("#imgInp").change(function() {
+        readURL(this);
+        });
+    </script>
+
+    <div class="classify container shadow-lg p-3 mb-5 ">
+        <div class="jumbotron">
+            <label for="content-1">圖文段落</label>
+            <div class="row">
+                <div class="col-sm-7">
+                    <form method="post">
+                        <textarea id="content-1">Hello, World!</textarea>
+                    </form>
+                </div>
+                <div class="col-sm-5">
+                    <form runat="server">
+                        <input type='file' id="imgInp" />
+                        <img id="blah" src="#" alt="your image" />
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="d-flex flex-row-reverse ">
+            <button class=" btn btn-outline-danger btn-lg" type="button">刪除段落</button>
+        </div>
+    </div>
+
+
     <style>
-        #finishzong a{
+        #finishzong button {
             margin: 0.25rem;
         }
     </style>
-    
+
     <div id="finishzong" class="main-view d-flex flex-row-reverse container shadow-lg p-3 mb-5 ">
-        <a class=" btn btn-outline-secondary btn-lg" 
-        type="button">完成編輯</a>
-        <a class=" btn btn-outline-secondary btn-lg" 
-        type="button">新增段落</a>
+        <button class=" btn btn-info btn-lg" type="button">完成編輯</button>
+        <button class=" btn btn-outline-secondary btn-lg" type="button">新增文字段落</button>
+        <button class=" btn btn-outline-secondary btn-lg" type="button">新增圖/文段落</button>
 
     </div>
 </body>
