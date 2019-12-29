@@ -1,5 +1,11 @@
 
 body{
-    background-color: #191919;
-    color : #8e8e8e;
+    background-color: #f6fcfa;
+    color : #252121;
+    font-family: 'Noto Sans TC', sans-serif;
+
 }
+.main-view{
+    margin-top: 3rem;
+}
+

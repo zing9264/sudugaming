@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,28 +15,205 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <!--index.css-->
         <link rel="stylesheet" type="text/css" href="./css/index.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="/index.html"><img alt="Colormind Logo" src="img/white_logo.png"></a>
-              </div>
-              <div id="navbar">
-                <ul class="nav navbar-nav navbar-right ">
-                    <li><button type="button" class="btn btn-light" value="最愛 "></button>
-                    </li>
-                    <li></li>
-                </ul>
-                
-                <ul class="nav navbar-nav navbar-right">
-                    <li></li>
-                    <li></li>
-                </ul>
-              </div>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><img class="w-50"  src="./img/white_logo.png" ></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a   class="align-middle  btn btn-secondary btn-lg" href="./index.html" type="button">首頁</a >
+          </li>
+          <li class="nav-item">
+            <a   class="align-middle  btn btn-outline-secondary btn-lg" href="./index.html" type="button">最愛</a >
+            </li>
+          <li class="nav-item">
+            <a   class="align-middle  btn btn-outline-secondary btn-lg" href="./gameclass.html" type="button">分類</a >
+            </li>
+        </ul>      
+        <form class="nav-item form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <div class="col-3"></div>
+        <form class="nav-item form-inline my-2 my-lg-0">
+        <a class="btn btn-outline-light" href="./login.html"  type="button">登入</a>
+        <a class="btn btn-outline-light" href="./login.html"  type="button">註冊</a>
+
+        </form>
+      </div>
+    </nav>
+    <div class="main-view container shadow-lg p-3 mb-5 ">
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">最新</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">熱門</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">推薦</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-group">
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
             </div>
-          </nav>
-        hello
-    </body>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-group">
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./img/makemoney.png"" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="#">簡單賺錢法</a></h5>
+              <p class="card-text">以下提供兩種賺錢的方法，很多人常常忽略掉，甚至根本不知道有這...<a href="#">（繼續閱讀）</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">相關標籤:
+                <a href="#" class="badge badge-dark">新手向</a>
+                <a href="#" class="badge badge-dark">賺錢</a>
+                <a href="#" class="badge badge-dark">攻略</a>
+              </small>
+              <br>
+              <small class="text-muted">更新時間:2019/12/20</small>
+            </div>
+          </div>
+        </div>
+
+        <nav style="margin: auto;" aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  </body>
 </html>
     
