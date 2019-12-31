@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!--index.css-->
+    <link rel="stylesheet" type="text/css" href="../../css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./labelpool.json"></script>
+
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+        });
+    </script>
+
+    <style>
+        .tox-notification--warning {
+            display: none !important;
+        }
+        
+        .inactive {
+            display: none;
+        }
+        
+        .labelpool {
+            margin: 0.15rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="d-flex">
+            <a class="navbar-brand" href="#"><img class="w-50" src="../../../img/white_logo.png"></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../../index.html" type="button">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../../index.html" type="button">最愛</a>
+                </li>
+                <li class="nav-item">
+                    <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../../gameclass.html" type="button">分類</a>
+                </li>
+                <li class="nav-item">
+                    <a class="align-middle  btn btn-outline-secondary btn-lg" href="../cardcreat.html" type="button">新增攻略</a>
+                </li>
+                <li>
+                    <a class="align-middle  btn btn-outline-info btn-lg" href="../gamename01_index.html" type="button">gamename01</a>
+                </li>
+            </ul>
+
+            <div class="col-3"></div>
+            <form class="nav-item form-inline my-2 my-lg-0">
+                <a class="btn btn-outline-light" href="../../../login.html" type="button">登入</a>
+                <a class="btn btn-outline-light" href="../../../login.html" type="button">註冊</a>
+
+            </form>
+        </div>
+    </nav>
+
+
+    <div id='zone-1' class="classify container shadow-lg p-3 mb-5 ">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-9">
+
+                </div>
+                <div class="col-3 row">
+                    <style>
+                        .addtag {
+                            height: 64px;
+                            width: 64px;
+                            background: url("https://img.icons8.com/wired/64/000000/add-tag.png") no-repeat;
+                        }
+                        
+                        .addtag:hover {
+                            background: url("https://img.icons8.com/dusk/64/000000/add-tag.png") no-repeat;
+                        }
+                        
+                        .shareimg {
+                            height: 64px;
+                            width: 64px;
+                            background: url("https://img.icons8.com/cotton/64/000000/share.png") no-repeat;
+                        }
+                        
+                        .shareimg:hover {
+                            filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, .5)) contrast(105%) blur(0.5px);
+                        }
+                        
+                        .likeimg {
+                            height: 64px;
+                            width: 64px;
+                            background: url("https://img.icons8.com/nolan/64/good-quality.png") no-repeat;
+                        }
+                        
+                        .likeimg:hover {
+                            filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, .5)) contrast(50%) blur(0.25px);
+                        }
+                    </style>
+                    <div class="col likeimg"></div>
+                    <div class="col addtag"></div>
+                    <div class="col shareimg"></div>
+                </div>
+            </div>
+            <h1 class="display-5" style="border-bottom: solid 2px black;">火焰戰士</h1>
+            <div class="header-context">
+                <p>
+                    火焰戰士，就是要火焰火焰火焰火焰火焰火焰火焰火焰火焰火焰，而我點技能的原則是： 「火屬都點爆」 沒錯，就是火屬都點爆，老子才不管甚麼屬性相剋三小的，每次放的技能就是火焰大爆噴。物理點成火焰，水屬轉成火焰大爆噴。火技能買一點十，跟把整棵技能樹點的像是只有火屬沒兩樣。 我還記得，我那個月打冰龍25天，團長跑來跟我說，這個月冰龍融化兩千六百次，你有頭緒嗎？ 我他媽的怎麼會知道。
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id='zone-2' class="classify container shadow-lg p-3 mb-5 ">
+        <div class="jumbotron">
+            <div class="body-context-1">
+                <p>
+                    火焰戰士，就是要火焰火焰火焰火焰火焰火焰火焰火焰火焰火焰，而我點技能的原則是： 「火屬都點爆」 沒錯，就是火屬都點爆，老子才不管甚麼屬性相剋三小的，每次放的技能就是火焰大爆噴。物理點成火焰，水屬轉成火焰大爆噴。火技能買一點十，跟把整棵技能樹點的像是只有火屬沒兩樣。 我還記得，我那個月打冰龍25天，團長跑來跟我說，這個月冰龍融化兩千六百次，你有頭緒嗎？ 我他媽的怎麼會知道。
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div id='zone-3' class="classify container shadow-lg p-3 mb-5 ">
+        <div class="jumbotron">
+            <div class="row d-flex">
+                <div class="col-sm-7">
+                    <div class="body-context-1">
+                        <p>
+                            火焰戰士，就是要火焰火焰火焰火焰火焰火焰火焰火焰火焰火焰，而我點技能的原則是： 「火屬都點爆」 沒錯，就是火屬都點爆，老子才不管甚麼屬性相剋三小的，每次放的技能就是火焰大爆噴。物理點成火焰，水屬轉成火焰大爆噴。火技能買一點十，跟把整棵技能樹點的像是只有火屬沒兩樣。 我還記得，我那個月打冰龍25天，團長跑來跟我說，這個月冰龍融化兩千六百次，你有頭緒嗎？ 我他媽的怎麼會知道。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-5 ">
+                    <img id="blah" src="../../../img/火焰戰士.jpg" width="100%" alt="your image" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id='checkcomment' class="classify container shadow-lg p-3 mb-5 ">
+        <button style="margin: auto;" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsecomment" aria-expanded="false" aria-controls="collapsecomment">
+          檢視留言
+        </button>
+    </div>>
+    <div class="collapse" id="collapsecomment">
+        <div id='comment-zone' class="classify container shadow-lg p-3 mb-5 ">
+            <div class="jumbotron">
+                <div class="row d-flex">
+                    <div class="col-sm-7">
+                        <div class="body-context-1">
+                            <p>
+                                火焰戰士，就是要火焰火焰火焰火焰火焰火焰火焰火焰火焰火焰，而我點技能的原則是： 「火屬都點爆」 沒錯，就是火屬都點爆，老子才不管甚麼屬性相剋三小的，每次放的技能就是火焰大爆噴。物理點成火焰，水屬轉成火焰大爆噴。火技能買一點十，跟把整棵技能樹點的像是只有火屬沒兩樣。 我還記得，我那個月打冰龍25天，團長跑來跟我說，這個月冰龍融化兩千六百次，你有頭緒嗎？ 我他媽的怎麼會知道。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 ">
+                        <img id="blah" src="../../../img/火焰戰士.jpg" width="100%" alt="your image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id='respons' class="classify container shadow-lg p-3 mb-5 ">
+        <div class="jumbotron">
+            <label for="respons-content">文章留言</label>
+            <form method="post">
+                <textarea id="respons-content"></textarea>
+            </form>
+        </div>
+        <div class="d-flex flex-row-reverse ">
+            <button class=" btn btn-outline-info btn-lg" type="button" onclick="pushrespons(this)">回覆</button>
+        </div>
+    </div>
+
+    <a href="https://icons8.com/icon/65364/share">Share icon by Icons8</a>
+</body>
+
+</html>
