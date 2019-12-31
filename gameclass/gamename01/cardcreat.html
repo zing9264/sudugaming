@@ -59,7 +59,7 @@
                     <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../index.html" type="button">首頁</a>
                 </li>
                 <li class="nav-item">
-                    <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../index.html" type="button">最愛</a>
+                    <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../mytags.html" type="button">最愛</a>
                 </li>
                 <li class="nav-item">
                     <a class="align-middle  btn btn-outline-secondary btn-lg" href="../../gameclass.html" type="button">分類</a>
@@ -105,12 +105,13 @@
 
     <script>
         function readURL(input) {
+            var idx = input.id.substring(6, input.id.length)
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    $('#blah').attr('src', e.target.result);
-                    $('#blah').removeClass('inactive');
+                    $('#blah' + idx).attr('src', e.target.result);
+                    $('#blah' + idx).removeClass('inactive');
                 }
 
                 reader.readAsDataURL(input.files[0]);
@@ -126,8 +127,8 @@
                     <textarea id="content-3"></textarea>
                 </div>
                 <div class="col-sm-5 ">
-                    <img id="blah" class="inactive" width="100%" alt="your image" />
-                    <input type='file' id="imgInp" class="btn btn-outline-secondary btn-lg" onchange="readURL(this)" />
+                    <img id="blah-3" class="inactive" width="100%" alt="your image" />
+                    <input type='file' style="width: 100%;" id="imgInp-3" class="btn btn-outline-secondary btn-lg" onchange="readURL(this)" />
                 </div>
             </div>
         </div>
@@ -250,15 +251,16 @@
 
                 addzone_view = document.querySelector('#' + imgdiv);
                 var img = document.createElement("img");
-                img.setAttribute('id', 'blah');
+                img.setAttribute('id', 'blah' + zoneidx);
                 img.setAttribute('class', 'inactive');
                 img.setAttribute('width', '100%');
                 addzone_view.appendChild(img);
 
                 var input = document.createElement("input");
                 input.setAttribute('type', 'file');
-                input.setAttribute('id', 'imgInp');
+                input.setAttribute('id', 'imgInp' + zoneidx);
                 input.setAttribute('class', 'btn btn-outline-secondary btn-lg');
+                input.setAttribute('style', 'width: 100%;')
                 input.setAttribute('onchange', 'readURL(this)');
                 addzone_view.appendChild(input);
             }
