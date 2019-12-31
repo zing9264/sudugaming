@@ -37,7 +37,9 @@
         .tox-notification--warning {
             display: none !important;
         }
-
+        .inactive{
+            display: none;
+        }
         .labelpool {
             margin: 0.15rem;
         }
@@ -47,10 +49,8 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="d-flex">
-            <img style="width: 10rem;" src="../../img/white_logo.png">
-            <a class="align-self-center" href="#" style="font-size: 1rem;">gamename01</a>
+            <a class="navbar-brand" href="#"><img class="w-50"  src="../../img/white_logo.png" ></a>
         </div>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -73,6 +73,10 @@
                     <a class="align-middle  btn btn-outline-secondary btn-lg" href="./cardcreat.html"
                         type="button">新增攻略</a>
                 </li>
+                <li>
+                    <a class="align-middle  btn btn-outline-info btn-lg" href="./gamename01_index.html"
+                    type="button">gamename01</a>
+                </li>
             </ul>
 
             <div class="col-3"></div>
@@ -84,73 +88,65 @@
         </div>
     </nav>
 
-    <div class="classify container shadow-lg p-3 mb-5 ">
+
+    <div id='zone-1' class="classify container shadow-lg p-3 mb-5 ">
         <div class="jumbotron">
             <label for="title">標題</label>
             <input id="title" class="form-control display-4" type="text" placeholder="">
             <label for="content-1">內文</label>
-            <form method="post">
-                <textarea id="content-1">Hello, World!</textarea>
-            </form>
+            <textarea id="content-1"></textarea>
         </div>
     </div>
 
-
-    <div class="classify container shadow-lg p-3 mb-5 ">
+    <div id='zone-2'  class="classify container shadow-lg p-3 mb-5 ">
         <div class="jumbotron">
             <label for="content-2">文字段落</label>
             <form method="post">
-                <textarea id="content-2">Hello, World!</textarea>
+                <textarea id="content-2"></textarea>
             </form>
         </div>
         <div class="d-flex flex-row-reverse ">
-            <button class=" btn btn-outline-danger btn-lg" type="button">刪除段落</button>
+            <button class=" btn btn-outline-danger btn-lg" type="button" onclick="deleteZone(this)">刪除段落</button>
         </div>
     </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script>
             function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function(e) {
-            $('#blah').attr('src', e.target.result);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                $('#blah').attr('src', e.target.result);
+                $('#blah').removeClass('inactive');
+                }
+                
+                reader.readAsDataURL(input.files[0]);
             }
-            
-            reader.readAsDataURL(input.files[0]);
-        }
         }
 
-        $("#imgInp").change(function() {
-        readURL(this);
-        });
     </script>
 
-    <div class="classify container shadow-lg p-3 mb-5 ">
+    <div id='zone-3'  class="classify container shadow-lg p-3 mb-5 ">
         <div class="jumbotron">
-            <label for="content-1">圖文段落</label>
-            <div class="row">
+            <label for="content-3">圖文段落</label>
+            <div class="row d-flex">
                 <div class="col-sm-7">
-                    <form method="post">
-                        <textarea id="content-1">Hello, World!</textarea>
-                    </form>
+                    <textarea id="content-3"></textarea>
                 </div>
-                <div class="col-sm-5">
-                    <form runat="server">
-                        <input type='file' id="imgInp" />
-                        <img id="blah" src="#" alt="your image" />
-                    </form>
-
+                <div class="col-sm-5 ">
+                    <img id="blah" class="inactive" width="100%"  alt="your image" />
+                    <input type='file' id="imgInp" class="btn btn-outline-secondary btn-lg" onchange="readURL(this)" />
                 </div>
             </div>
-
         </div>
         <div class="d-flex flex-row-reverse ">
-            <button class=" btn btn-outline-danger btn-lg" type="button">刪除段落</button>
+            <button class=" btn btn-outline-danger btn-lg" type="button" onclick="deleteZone(this)">刪除段落</button>
         </div>
     </div>
 
+    <div id="addzonediv">
+
+    </div>
 
     <style>
         #finishzong button {
@@ -158,10 +154,181 @@
         }
     </style>
 
-    <div id="finishzong" class="main-view d-flex flex-row-reverse container shadow-lg p-3 mb-5 ">
-        <button class=" btn btn-info btn-lg" type="button">完成編輯</button>
-        <button class=" btn btn-outline-secondary btn-lg" type="button">新增文字段落</button>
-        <button class=" btn btn-outline-secondary btn-lg" type="button">新增圖/文段落</button>
+
+<script>
+
+        
+    function removeitem(value) {
+        for( var i = 0; i < context_array.length; i++){ 
+            if ( context_array[i] ==value) {
+                context_array.splice(i, 1); 
+            }
+        }
+    }
+
+    function deleteZone(event){
+        var parent = event.parentNode.parentNode;
+
+        console.log(parent.id)
+        
+        tmpidx=parent.id.substring(5,parent.id.length)
+        console.log(tmpidx)
+        removeitem('content-'+tmpidx)
+
+        console.log(parent)
+        $(parent).remove();
+    }
+</script>
+
+
+    <script>
+        zoneidx=4;
+        context_array=['content-1','content-2','content-3'];
+
+
+        function addzone(event){
+                var addzone_view = document.querySelector('#addzonediv');
+            
+                var thisdivzone= "zone-"+zoneidx;
+
+                var div_outer = document.createElement("div");
+                div_outer.setAttribute("id", thisdivzone);
+                div_outer.setAttribute("class", "classify container shadow-lg p-3 mb-5 ");
+                addzone_view.appendChild(div_outer);
+
+                addzone_view = document.querySelector('#'+thisdivzone);
+
+                var div_jumbotron = document.createElement("div");
+                var thisjumbotron= "jumbotron-"+zoneidx;
+
+                div_jumbotron.setAttribute("class", "jumbotron");
+                div_jumbotron.setAttribute("id", thisjumbotron);
+                addzone_view.appendChild(div_jumbotron);
+
+                
+                var div_delete = document.createElement("div");
+                var thisdelete= "delete-"+zoneidx;
+
+                div_delete.setAttribute("class", "d-flex flex-row-reverse");
+                div_delete.setAttribute("id", thisdelete);
+                addzone_view.appendChild(div_delete);
+
+                addzone_view = document.querySelector('#'+thisjumbotron);
+
+                if(event==1){
+                var label = document.createElement("label");
+                var thiscontent ='content-'+zoneidx
+                label.setAttribute("for", thiscontent);
+                label.innerHTML='文字段落';
+                addzone_view.appendChild(label);
+                var textarea = document.createElement("textarea");
+                textarea.setAttribute('id',thiscontent);
+                addzone_view.appendChild(textarea);
+                }
+
+                else if(event==2){
+
+                var label = document.createElement("label");
+                var thiscontent ='content-'+zoneidx
+                label.setAttribute("for", thiscontent);
+                label.innerHTML='圖文段落';
+                addzone_view.appendChild(label);
+
+                var tmpdiv=document.createElement("div");
+                var rowdiv='rowdiv-'+zoneidx
+                tmpdiv.setAttribute("class", 'row d-flex');
+                tmpdiv.setAttribute("id",rowdiv);
+                addzone_view.appendChild(tmpdiv);
+
+                addzone_view= document.querySelector('#'+rowdiv);
+
+                var tmpdiv=document.createElement("div");
+                var textdiv='col-text-'+zoneidx
+                tmpdiv.setAttribute("class", 'col-sm-7');
+                tmpdiv.setAttribute("id",textdiv);
+                addzone_view.appendChild(tmpdiv);
+
+                var tmpdiv=document.createElement("div");
+                var imgdiv='col-img-'+zoneidx
+                tmpdiv.setAttribute("class", 'col-sm-5');
+                tmpdiv.setAttribute("id",imgdiv);
+                addzone_view.appendChild(tmpdiv);
+
+                addzone_view= document.querySelector('#'+textdiv);
+                var textarea = document.createElement("textarea");
+                textarea.setAttribute('id',thiscontent);
+                addzone_view.appendChild(textarea);
+                
+                
+                addzone_view= document.querySelector('#'+imgdiv);
+                var img = document.createElement("img");
+                img.setAttribute('id','blah');
+                img.setAttribute('class','inactive');
+                img.setAttribute('width','100%');
+                addzone_view.appendChild(img);
+
+                var input = document.createElement("input");
+                input.setAttribute('type','file');
+                input.setAttribute('id','imgInp');
+                input.setAttribute('class','btn btn-outline-secondary btn-lg');
+                input.setAttribute('onchange','readURL(this)');
+                addzone_view.appendChild(input);
+                }
+                context_array.push(thiscontent)
+
+                addzone_view = document.querySelector('#'+thisdelete);
+                var delbtn = document.createElement("button");
+                delbtn.setAttribute('class','btn btn-outline-danger btn-lg ');
+                delbtn.setAttribute('type','button');
+                delbtn.setAttribute('onclick','deleteZone(this)');
+                delbtn.innerHTML='刪除段落';
+                addzone_view.appendChild(delbtn);
+
+                zoneidx++;
+                tinymce.init({ selector: 'textarea' });
+        }
+
+        function finishedit(){
+            title= document.querySelector('#title');
+            console.log(title.value)
+            console.log(context_array)
+            var i=0
+
+            document.querySelector('#demo-title').innerHTML=title.value;
+            document.querySelector('#input-data').innerHTML=''
+            for(i=0 ;i < context_array.length;i++){
+                var content = $('#'+context_array[i]).val(tinyMCE.editors[i].getContent());
+                console.log(content[0].value)
+                document.querySelector('#input-data').innerHTML+=content[0].value;
+                document.querySelector('#input-data').innerHTML+='<br/>-----------------------------------------------------<br/>';
+            }
+
+        }
+    </script>
+            <!-- Modal -->
+            <div class="modal fade" id="finishmodal" tabindex="-1" role="dialog" aria-labelledby="finishmodal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="demo-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div id='input-data'class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <span>由於此期末專題未架設後台資料庫，以此視窗驗證取值功能正確。</span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+    <div id="finishzong" class="main-view d-flex flex-row-reverse container shadow-lg p-3 mb-5">
+        <button class=" btn btn-info btn-lg" data-toggle="modal" data-target="#finishmodal" type="" onclick="finishedit()">完成編輯</button>
+        <button class=" btn btn-outline-secondary btn-lg" type="button" onclick="addzone(1)">新增文字段落</button>
+        <button class=" btn btn-outline-secondary btn-lg" type="button" onclick="addzone(2)" >新增圖/文段落</button>
 
     </div>
 </body>
